@@ -4,8 +4,6 @@ notify { 'Manifeste basique pour garantir la presence d\'un utilisateur ': }
 # Garantie sur le package zsh
 package { 'zsh':
 	ensure => 'present',
-	# Dépendance entre les 2 ressources
-	before => User['gilles'],
 }
 
 # Utilisateur gilles, avec un shell non présent par défaut
@@ -14,4 +12,6 @@ user { 'gilles':
 	comment => 'Gilles Pietri',
 	shell => '/bin/zsh',
 	home => '/home/gilles',
+	# Dépendance entre les 2 ressources
+	require => Package['zsh'],
 }
