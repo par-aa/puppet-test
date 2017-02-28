@@ -1,0 +1,8 @@
+#! /bin/bash
+
+# Script de pre-commit pour git
+# S'exécute AVANT la validation du commit, à la racine du dépôt
+# En cas d'erreur : le commit est annulé.
+
+# Validation syntaxique basique de nos fichiers manifestes
+puppet parser validate *.pp
