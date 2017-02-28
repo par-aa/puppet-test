@@ -7,6 +7,7 @@ file { '/etc/ssh/sshd_config':
 	owner => 'root',
 	group => 'root',
 	mode => '0644',
+	require => Package['openssh-server'],
 	notify => Service['ssh'],
 	content => 'Port 22
 Protocol 2
@@ -42,7 +43,6 @@ UsePAM yes',
 service { 'ssh':
 	ensure => 'running',
 	enable => 'true',
-	require => Package['openssh-server'],
 }
 
 file { '/root/.ssh':
