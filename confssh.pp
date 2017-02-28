@@ -1,3 +1,13 @@
+package { 'openssh-server':
+	ensure => 'present',
+}
+
+service { 'ssh':
+	ensure => 'running',
+	enable => 'true',
+	require => Package['openssh-server'],
+}
+
 file { '/root/.ssh':
 	ensure => 'directory',
 	mode => '0700',
