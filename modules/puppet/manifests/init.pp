@@ -14,15 +14,7 @@ class puppet {
 		group => 'root',
 		mode => '0644',
 		require => Package['puppet-agent'],
-		content => '[agent]
-runinterval = 15m
-[master]
-vardir = /opt/puppetlabs/server/data/puppetserver
-logdir = /var/log/puppetlabs/puppetserver
-rundir = /var/run/puppetlabs/puppetserver
-pidfile = /var/run/puppetlabs/puppetserver/puppetserver.pid
-codedir = /etc/puppetlabs/code
-',
+		source => 'puppet:///modules/puppet/puppet.conf',
 	}
 
 	service { 'puppet':
