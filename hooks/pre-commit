@@ -5,4 +5,4 @@
 # En cas d'erreur : le commit est annulé.
 
 # Validation syntaxique basique de nos fichiers manifestes
-puppet parser validate manifests/*.pp
+puppet parser validate manifests/*.pp modules/*/manifests/*.pp
