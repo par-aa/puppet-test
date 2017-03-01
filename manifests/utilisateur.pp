@@ -1,5 +1,5 @@
 # Garantie sur le package zsh
-package { 'zsh':
+package { 'bash':
 	ensure => 'present',
 }
 
@@ -7,8 +7,8 @@ package { 'zsh':
 user { 'gilles':
 	ensure => 'present',
 	comment => 'Gilles Pietri',
-	shell => '/bin/zsh',
+	shell => '/bin/bash',
 	home => '/home/gilles',
 	# Dépendance entre les 2 ressources
-	require => Package['zsh'],
+	require => Package['bash'],
 }
