@@ -1,5 +1,14 @@
 # Garantie sur le package zsh
-package { 'bash':
+
+if $osfamily == 'Debian' {
+	$shell_user = 'zsh'
+}
+elsif $osfamily == 'Suse' {
+	$shell_user = 'bash'
+}
+
+package { 'shell_utilisateur':
+	name => $shell_user,
 	ensure => 'present',
 }
 
@@ -7,8 +16,8 @@ package { 'bash':
 user { 'gilles':
 	ensure => 'present',
 	comment => 'Gilles Pietri',
-	shell => '/bin/bash',
+	shell => "/bin/${shell_user}",
 	home => '/home/gilles',
 	# Dépendance entre les 2 ressources
-	require => Package['bash'],
+	require => Package['shell_utilisateur'],
 }
