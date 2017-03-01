@@ -10,7 +10,7 @@ package { $package_list:
 
 file { '/etc/motd':
 	ensure => 'present',
-	content => "Bonjour, vous etes sur ${fqdn}\n",
+	content => "Bonjour, vous etes sur ${fqdn}, qui tourne sur ${os['name']} (${osfamily})\n",
 	mode => '0644',
 	owner => 'root',
 	group => 'root',
