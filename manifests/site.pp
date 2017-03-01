@@ -5,12 +5,7 @@ class { 'bootstrap':
 include confssh
 include puppet
 
-utilisateur { 'utilisateur_gilles':
-	username => 'gilles',
-}
-
-utilisateur { 'utilisateur_toto':
-	username => 'toto',
-}
+utilisateur { 'gilles': }
+utilisateur { 'toto': }
 
 

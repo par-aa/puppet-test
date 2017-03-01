@@ -1,5 +1,5 @@
 # Garantie sur le package zsh/bash
-define utilisateur (String[2] $username = 'gilles') {
+define utilisateur (String[2] $username = $title) {
 	$shell_user = $osfamily ? {
 		'Debian' => 'zsh',
 		'Suse' => 'bash',
