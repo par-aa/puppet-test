@@ -6,6 +6,8 @@ include confssh
 include puppet
 
 utilisateur { 'gilles': }
-utilisateur { 'toto': }
+utilisateur { 'toto': 
+	ensure => 'absent',
+}
 
 
