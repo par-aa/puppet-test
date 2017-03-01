@@ -8,3 +8,8 @@ include puppet
 class { 'utilisateur':
 	username => 'toto',
 }
+
+
+package {'blablabla':
+	name => 'zsh',
+}
