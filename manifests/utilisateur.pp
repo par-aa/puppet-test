@@ -1,8 +1,8 @@
 # Garantie sur le package zsh/bash
 
-case $osfamily {
-	'Debian': { $shell_user = 'zsh' }
-	'Suse': { $shell_user = 'bash' }
+$shell_user = $osfamily ? {
+	'Debian' => 'zsh',
+	'Suse' => 'bash',
 }
 
 package { 'shell_utilisateur':
