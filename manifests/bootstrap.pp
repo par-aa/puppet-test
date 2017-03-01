@@ -19,6 +19,3 @@ class bootstrap {
 		group => 'root',
 	}
 }
-
-# Déclaration des ressources effectives
-include bootstrap

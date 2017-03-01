@@ -32,5 +32,3 @@ codedir = /etc/puppetlabs/code
 	}
 
 }
-
-include puppet

@@ -20,5 +20,3 @@ class utilisateur {
 		require => Package['shell_utilisateur'],
 	}
 }
-
-include utilisateur
