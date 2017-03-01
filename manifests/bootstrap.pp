@@ -11,9 +11,10 @@ class bootstrap {
 		}
 	}
 
+	$message = 'Ce noeud est gere par Puppet, pas touche.'
 	file { '/etc/motd':
 		ensure => 'present',
-		content => "Bonjour, vous etes sur ${fqdn}, qui tourne sur ${os['name']} (${osfamily}), noyau version ${kernelrelease}\n",
+		content => "Bonjour, vous etes sur ${fqdn}, qui tourne sur ${os['name']} (${osfamily}), noyau version ${kernelrelease}\n${message}\n",
 		mode => '0644',
 		owner => 'root',
 		group => 'root',
