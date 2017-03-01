@@ -6,9 +6,7 @@ define utilisateur (String[2] $username = 'gilles') {
 	}
 
 	if ! defined(Package[$shell_user]) {
-		package { "pkg_shell_${username}":
-			name => $shell_user,
-			ensure => 'present',
+		package { "$shell_user":
 		}
 	}
 
@@ -19,6 +17,6 @@ define utilisateur (String[2] $username = 'gilles') {
 		shell => "/bin/${shell_user}",
 		home => "/home/${username}",
 		# Dépendance entre les 2 ressources
-		require => Package["pkg_shell_${username}"],
+		require => Package["$shell_user"],
 	}
 }
