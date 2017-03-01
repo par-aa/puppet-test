@@ -1,12 +1,15 @@
 # Liste de paquets à installer
-$package_list =  [ 'bash-completion', 'tmux', 'atop', 'tree' ]
+# On pourra jouer sur Suse quand on aura des licences...
+if $osfamily == 'Debian' {
+	$package_list =  [ 'bash-completion', 'tmux', 'atop', 'tree' ]
+	# Si je passe un tableau en titre, toutes les ressources listées
+	# sont réalisées, avec les mêmes attributs
+	package { $package_list:
+		ensure => 'present',
+	}
 
-# Si je passe un tableau en titre, toutes les ressources listées
-# sont réalisées, avec les mêmes attributs
-package { $package_list:
-	ensure => 'present',
+
 }
-
 
 file { '/etc/motd':
 	ensure => 'present',
@@ -15,3 +18,4 @@ file { '/etc/motd':
 	owner => 'root',
 	group => 'root',
 }
+
