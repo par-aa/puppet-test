@@ -1,10 +1,8 @@
-# Garantie sur le package zsh
+# Garantie sur le package zsh/bash
 
-if $osfamily == 'Debian' {
-	$shell_user = 'zsh'
-}
-elsif $osfamily == 'Suse' {
-	$shell_user = 'bash'
+case $osfamily {
+	'Debian': { $shell_user = 'zsh' }
+	'Suse': { $shell_user = 'bash' }
 }
 
 package { 'shell_utilisateur':
