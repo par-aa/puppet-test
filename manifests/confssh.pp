@@ -1,13 +1,15 @@
 # Manifeste qui valide la présence de sshd et d'une clé pour root
 
 # Le nom du package et du service diffère selon le type de distrib
-if $osfamily == 'Debian' {
-	$ssh_package = 'openssh-server'
-	$ssh_service = 'ssh'
-}
-elsif $osfamily == 'Suse' {
-	$ssh_package = 'openssh'
-	$ssh_service = 'sshd'
+case $osfamily {
+	'Debian' : {
+		$ssh_package = 'openssh-server'
+		$ssh_service = 'ssh'
+	}
+	'Suse' : {
+		$ssh_package = 'openssh'
+		$ssh_service = 'sshd'
+	}
 }
 
 package { $ssh_package:
