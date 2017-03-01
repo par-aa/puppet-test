@@ -9,8 +9,6 @@ class bootstrap {
 		package { $package_list:
 			ensure => 'present',
 		}
-
-
 	}
 
 	file { '/etc/motd':
@@ -20,7 +18,6 @@ class bootstrap {
 		owner => 'root',
 		group => 'root',
 	}
-
 }
 
 # Déclaration des ressources effectives

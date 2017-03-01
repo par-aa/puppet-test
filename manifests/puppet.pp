@@ -3,17 +3,18 @@
 # - le fichier /etc/puppetlabs/puppet/puppet.conf adapté
 # - le service puppet
 
-package { 'puppet-agent':
-	ensure => 'present',
-}
+class puppet {
+	package { 'puppet-agent':
+		ensure => 'present',
+	}
 
-file { '/etc/puppetlabs/puppet/puppet.conf':
-	ensure => 'present',
-	owner => 'root',
-	group => 'root',
-	mode => '0644',
-	require => Package['puppet-agent'],
-	content => '[agent]
+	file { '/etc/puppetlabs/puppet/puppet.conf':
+		ensure => 'present',
+		owner => 'root',
+		group => 'root',
+		mode => '0644',
+		require => Package['puppet-agent'],
+		content => '[agent]
 runinterval = 15m
 [master]
 vardir = /opt/puppetlabs/server/data/puppetserver
@@ -22,10 +23,14 @@ rundir = /var/run/puppetlabs/puppetserver
 pidfile = /var/run/puppetlabs/puppetserver/puppetserver.pid
 codedir = /etc/puppetlabs/code
 ',
+	}
+
+	service { 'puppet':
+		ensure => 'running',
+		enable => 'true',
+		subscribe => File['/etc/puppetlabs/puppet/puppet.conf'],
+	}
+
 }
 
-service { 'puppet':
-	ensure => 'running',
-	enable => 'true',
-	subscribe => File['/etc/puppetlabs/puppet/puppet.conf'],
-}
+include puppet
