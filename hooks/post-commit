@@ -5,4 +5,4 @@ PUPPET_MASTER=puppet
 ENVIRONMENT=production
 PUPPET_CODE_DIR=/etc/puppetlabs/code
 
-rsync --delete -r manifests/ root@$PUPPET_MASTER:$PUPPET_CODE_DIR/environments/$ENVIRONMENT/manifests/
+rsync --delete -r ./ --exclude hooks --exclude README root@$PUPPET_MASTER:$PUPPET_CODE_DIR/environments/$ENVIRONMENT/
