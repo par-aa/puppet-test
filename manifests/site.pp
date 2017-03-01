@@ -4,4 +4,7 @@ class { 'bootstrap':
 }
 include confssh
 include puppet
-include utilisateur
+
+class { 'utilisateur':
+	username => 'toto',
+}

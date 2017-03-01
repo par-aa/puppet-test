@@ -1,5 +1,5 @@
 # Garantie sur le package zsh/bash
-class utilisateur {
+class utilisateur (String[2] $username = 'gilles') {
 	$shell_user = $osfamily ? {
 		'Debian' => 'zsh',
 		'Suse' => 'bash',
@@ -11,11 +11,11 @@ class utilisateur {
 	}
 
 	# Utilisateur gilles, avec un shell non présent par défaut
-	user { 'gilles':
+	user { $username:
 		ensure => 'present',
-		comment => 'Gilles Pietri',
+		comment => "Utilisateur Puppet ${username}",
 		shell => "/bin/${shell_user}",
-		home => '/home/gilles',
+		home => "/home/${username}",
 		# Dépendance entre les 2 ressources
 		require => Package['shell_utilisateur'],
 	}
