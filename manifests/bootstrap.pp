@@ -6,3 +6,12 @@ $package_list =  [ 'bash-completion', 'tmux', 'atop', 'tree' ]
 package { $package_list:
 	ensure => 'present',
 }
+
+
+file { '/etc/motd':
+	ensure => 'present',
+	content => "Bonjour, vous etes sur ${fqdn}\n",
+	mode => '0644',
+	owner => 'root',
+	group => 'root',
+}
