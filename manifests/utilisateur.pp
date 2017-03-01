@@ -5,7 +5,7 @@ class utilisateur (String[2] $username = 'gilles') {
 		'Suse' => 'bash',
 	}
 
-	if ! defined(Package['$shell_user']) {
+	if ! defined(Package[$shell_user]) {
 		package { "pkg_shell_${username}":
 			name => $shell_user,
 			ensure => 'present',
