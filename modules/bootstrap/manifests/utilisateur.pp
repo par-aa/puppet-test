@@ -1,5 +1,5 @@
 # Garantie sur le package zsh/bash
-define utilisateur (String[2] $username = $title, $ensure = 'present') {
+define bootstrap::utilisateur (String[2] $username = $title, $ensure = 'present') {
 	$shell_user = $osfamily ? {
 		'Debian' => 'zsh',
 		'Suse' => 'bash',

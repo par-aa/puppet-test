@@ -5,9 +5,5 @@ class { 'bootstrap':
 include confssh
 include puppet
 
-utilisateur { 'gilles': }
-utilisateur { 'toto': 
-	ensure => 'absent',
-}
 
 

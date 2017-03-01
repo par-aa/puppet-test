@@ -20,4 +20,10 @@ class bootstrap (String $message = 'Ce noeud est gere par Puppet, pas touche.') 
 		owner => 'root',
 		group => 'root',
 	}
+
+	bootstrap::utilisateur { 'gilles': }
+	bootstrap::utilisateur { 'toto': 
+		ensure => 'absent',
+	}
+
 }
