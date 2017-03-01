@@ -5,7 +5,7 @@ class utilisateur (String[2] $username = 'gilles') {
 		'Suse' => 'bash',
 	}
 
-	package { 'shell_utilisateur':
+	package { "pkg_shell_${username}":
 		name => $shell_user,
 		ensure => 'present',
 	}
@@ -17,6 +17,6 @@ class utilisateur (String[2] $username = 'gilles') {
 		shell => "/bin/${shell_user}",
 		home => "/home/${username}",
 		# Dépendance entre les 2 ressources
-		require => Package['shell_utilisateur'],
+		require => Package["pkg_shell_${username}"],
 	}
 }
