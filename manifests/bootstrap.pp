@@ -1,4 +1,5 @@
 # _Définition_ des ressources dans la classe
+# Paramètre de classe : message : message à inclure à la fin du motd
 class bootstrap (String $message = 'Ce noeud est gere par Puppet, pas touche.') {
 	# Liste de paquets à installer
 	# On pourra jouer sur Suse quand on aura des licences...
