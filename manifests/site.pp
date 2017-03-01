@@ -11,6 +11,7 @@ class { 'utilisateur':
 
 
 if Package['zsh'] == undef {
-	package {'zsh':
+	package {'blablabla':
+		name => 'zsh',
 	}
 }
