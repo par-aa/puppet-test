@@ -1,4 +1,7 @@
-package { 'openssh-server':
+$ssh_package = 'openssh-server'
+$ssh_service = 'ssh'
+
+package { $ssh_package:
 	ensure => 'present',
 }
 
@@ -7,8 +10,8 @@ file { '/etc/ssh/sshd_config':
 	owner => 'root',
 	group => 'root',
 	mode => '0644',
-	require => Package['openssh-server'],
-	notify => Service['ssh'],
+	require => Package[$ssh_package],
+	notify => Service[$ssh_service],
 	content => 'Port 22
 Protocol 2
 HostKey /etc/ssh/ssh_host_rsa_key
@@ -40,7 +43,7 @@ Subsystem sftp /usr/lib/openssh/sftp-server
 UsePAM yes',
 }
 	
-service { 'ssh':
+service { $ssh_service:
 	ensure => 'running',
 	enable => 'true',
 }
