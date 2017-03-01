@@ -10,8 +10,3 @@ class { 'utilisateur':
 }
 
 
-if Package['zsh'] == undef {
-	package {'blablabla':
-		name => 'zsh',
-	}
-}

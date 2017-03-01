@@ -5,9 +5,11 @@ class utilisateur (String[2] $username = 'gilles') {
 		'Suse' => 'bash',
 	}
 
-	package { "pkg_shell_${username}":
-		name => $shell_user,
-		ensure => 'present',
+	if ! defined(Package['$shell_user']) {
+		package { "pkg_shell_${username}":
+			name => $shell_user,
+			ensure => 'present',
+		}
 	}
 
 	# Utilisateur gilles, avec un shell non présent par défaut
