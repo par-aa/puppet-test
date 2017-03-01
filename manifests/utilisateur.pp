@@ -1,6 +1,3 @@
-# Notify : utile pour afficher des informations sur la sortie ou dans les logs
-notify { 'Manifeste basique pour garantir la presence d\'un utilisateur ': }
-
 # Garantie sur le package zsh
 package { 'zsh':
 	ensure => 'present',
