@@ -1,5 +1,5 @@
 # _Définition_ des ressources dans la classe
-class bootstrap {
+class bootstrap (String $message = 'Ce noeud est gere par Puppet, pas touche.') {
 	# Liste de paquets à installer
 	# On pourra jouer sur Suse quand on aura des licences...
 	if $osfamily == 'Debian' {
@@ -11,7 +11,7 @@ class bootstrap {
 		}
 	}
 
-	$message = 'Ce noeud est gere par Puppet, pas touche.'
+	
 	file { '/etc/motd':
 		ensure => 'present',
 		content => "Bonjour, vous etes sur ${fqdn}, qui tourne sur ${os['name']} (${osfamily}), noyau version ${kernelrelease}\n${message}\n",
