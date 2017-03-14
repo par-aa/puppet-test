@@ -1,8 +1,0 @@
-#! /bin/bash
-# Déploiement du code, ou au moins des manifestes sur le puppet master
-
-PUPPET_MASTER=puppet
-ENVIRONMENT=production
-PUPPET_CODE_DIR=/etc/puppetlabs/code
-
-rsync --delete -r ./ --exclude hooks --exclude README root@$PUPPET_MASTER:$PUPPET_CODE_DIR/environments/$ENVIRONMENT/
