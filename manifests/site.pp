@@ -1,5 +1,6 @@
 # Déclaration de ma ressource, mais en passant un paramètre
 notify { 'It wokrs !....!...!':}
+notify { 'Checking if r10k can synchronize automatically':}
 
 #include puppet
 
